@@ -762,21 +762,21 @@ JSQMessagesKeyboardControllerDelegate>
 
 - (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressLeftBarButton:(UIButton *)sender
 {
-    if (toolbar.sendButtonOnRight) {
-        [self didPressAccessoryButton:sender];
-    }
-    else {
+    if (toolbar.sendButtonLocation == JSQMessagesInputSendButtonLocationLeft) {
         [self didPressSendButton:sender
                  withMessageText:[self jsq_currentlyComposedMessageText]
                         senderId:self.senderId
                senderDisplayName:self.senderDisplayName
                             date:[NSDate date]];
     }
+    else {
+        [self didPressAccessoryButton:sender];
+    }
 }
 
 - (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressRightBarButton:(UIButton *)sender
 {
-    if (toolbar.sendButtonOnRight) {
+    if (toolbar.sendButtonLocation == JSQMessagesInputSendButtonLocationRight) {
         [self didPressSendButton:sender
                  withMessageText:[self jsq_currentlyComposedMessageText]
                         senderId:self.senderId

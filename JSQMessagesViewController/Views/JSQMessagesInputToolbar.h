@@ -23,6 +23,12 @@
 
 @class JSQMessagesInputToolbar;
 
+typedef NS_ENUM(NSUInteger, JSQMessagesInputSendButtonLocation) {
+    JSQMessagesInputSendButtonLocationNone,
+    JSQMessagesInputSendButtonLocationRight,
+    JSQMessagesInputSendButtonLocationLeft
+};
+
 
 /**
  *  The `JSQMessagesInputToolbarDelegate` protocol defines methods for interacting with
@@ -70,17 +76,17 @@
 @property (weak, nonatomic, readonly) JSQMessagesToolbarContentView *contentView;
 
 /**
- *  A boolean value indicating whether the send button is on the right side of the toolbar or not.
- *
- *  @discussion The default value is `YES`, which indicates that the send button is the right-most subview of
- *  the toolbar's `contentView`. Set to `NO` to specify that the send button is on the left. This
+ *  An enum value indicating the location of thee send button in relation to the toolbar.
+ *  
+ *  @discussion The default value is `JSQMessagesInputSendButtonLocationRight`, which indicates that the send button is the right-most subview of
+ *  the toolbar's `contentView`. Set to `JSQMessagesInputSendButtonLocationLeft` to specify that the send button is on the left. Set to 'JSQMessagesInputSendButtonLocationNone' if there is no send button or if you want to take control of the send button actions. This
  *  property is used to determine which touch events correspond to which actions.
  *
  *  @warning Note, this property *does not* change the positions of buttons in the toolbar's content view.
- *  It only specifies whether the `rightBarButtonItem `or the `leftBarButtonItem` is the send button.
+ *  It only specifies whether the `rightBarButtonItem `or the `leftBarButtonItem` is the send button or there is no send button.
  *  The other button then acts as the accessory button.
  */
-@property (assign, nonatomic) BOOL sendButtonOnRight;
+@property (assign, nonatomic) JSQMessagesInputSendButtonLocation sendButtonLocation;
 
 /**
  *  Specifies the default (minimum) height for the toolbar. The default value is `44.0f`. This value must be positive.
