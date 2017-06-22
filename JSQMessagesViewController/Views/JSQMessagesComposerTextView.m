@@ -24,6 +24,7 @@
 
 
 @implementation JSQMessagesComposerTextView
+@synthesize pasteDelegate = _pasteDelegate;
 
 #pragma mark - Initialization
 
