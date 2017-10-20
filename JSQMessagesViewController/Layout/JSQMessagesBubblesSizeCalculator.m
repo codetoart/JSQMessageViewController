@@ -91,6 +91,11 @@
     [self.cache removeAllObjects];
 }
 
+- (void)resetBubbleSizeCacheForMessageData:(id<JSQMessageData>)messageData
+{
+    [self.cache removeObjectForKey:@([messageData messageHash])];
+}
+
 - (CGSize)messageBubbleSizeForMessageData:(id<JSQMessageData>)messageData
                               atIndexPath:(NSIndexPath *)indexPath
                                withLayout:(JSQMessagesCollectionViewFlowLayout *)layout

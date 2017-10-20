@@ -54,4 +54,11 @@
  */
 - (void)prepareForResettingLayout:(JSQMessagesCollectionViewFlowLayout *)layout;
 
+/**
+ * Clears any stored size information for the item specified by indexPath.
+ *
+ *  @param messageData The message data of the item to reset size information for.
+ */
+- (void)resetBubbleSizeCacheForMessageData:(id<JSQMessageData>)messageData;
+
 @end
